@@ -2,10 +2,29 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../features/todo/TodoSlice";
 
+/**
+ * A functional component that renders a form for adding new todos.
+ * It maintains an input state for the text of the todo being added.
+ * When the form is submitted, it dispatches the addTodo action with
+ * the current input value and clears the input field.
+ *
+ * Hooks:
+ * - useState: Used to store the current input value.
+ * - useDispatch: Used to obtain the dispatch function from React Redux.
+ *
+ * Returns:
+ * A JSX element containing a form with an input field and a submit button.
+ */
 function AddTodo() {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
+  /**
+   * A function that is called when the form is submitted. It prevents the
+   * default form submission behavior, dispatches the addTodo action with the
+   * current input state, and then sets the input state to an empty string.
+   * @param {Event} e - The form submission event
+   */
   const addTodoHandler = (e) => {
     e.preventDefault();
     dispatch(addTodo(input));

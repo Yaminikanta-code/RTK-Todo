@@ -2,6 +2,15 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeTodo } from "../features/todo/TodoSlice";
 
+/**
+ * A React component that displays a list of to-dos and provides functionality to remove them.
+ *
+ * This component retrieves the list of to-dos from the Redux store using the `useSelector` hook
+ * and dispatches actions using the `useDispatch` hook. Each to-do item is displayed with a delete
+ * button, which allows the user to remove the to-do from the list.
+ *
+ * @returns {JSX.Element} The rendered component displaying the list of to-dos.
+ */
 function Todos() {
   const todos = useSelector((state) => state.todo.todos);
   const dispatch = useDispatch();
